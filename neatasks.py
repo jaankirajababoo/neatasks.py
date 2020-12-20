@@ -16,6 +16,7 @@ IdentificationCode=[    0,    1,    2,    3,    4,   5,   6,    7,    8,9]
 def Task1():
     print('tiles are sold in boxes, each box covers one square metre')
     Tile_Length = len(Tile_List)
+    #finding the length of the character 
     #this line is the format for the table and the line below it is used to make the table look presentable
     print('{0:30} {1:20} {2:20}'.format('Tile Description','Price per box','Identification Code'))
     print('{0:30} {1:20} {2:20}'.format('----------------','---------------','-------------------'))
@@ -41,7 +42,7 @@ def Task1():
 
     print('you need',Area,'number of boxes')
     TotalBox = Area*1
-
+    #working out the total price by multiplying the total number of boxes needed by the price
     TotalPrice = TotalBox*PricePerBox[Idcode]
     print('the total cost is $',TotalPrice)    
 #working out area, how many boxes are needed and the total price
@@ -51,7 +52,7 @@ def Task1():
 def Task2():
     print('tiles are sold in boxes, each box covers one square metre')
     Tile_Length = len(Tile_List)
-    
+    #finding the length of the character
     #this line is the format for the table and the line below it is used to make the table look presentable
     print('{0:30} {1:20} {2:20}'.format('Tile Description','Price per box','Identification Code'))
     print('{0:30} {1:20} {2:20}'.format('----------------','---------------','-------------------'))
@@ -59,6 +60,7 @@ def Task2():
         Idcode=IdentificationCode[index]
         TileDescription=Tile_List[index]
         Priceperbox=PricePerBox[index]
+        #outputs Identification code, tile description and price per box
         print('{0:30} {1:^20} {2:^20}'.format(TileDescription,Priceperbox,Idcode))
 
     Idcode = input('Enter the Identification Code:')
@@ -71,9 +73,12 @@ def Task2():
     for count in range(TotalWalls):
         Height = input('Enter the height of your wall:')
         Width = input('Enter the width of your wall:')
+        #converting the string into an integer/s
         Height = int(Height)
         Width = int(Width)
+        #multiplying the height by width to get the area
         Area = Height*Width
+        #adding the area onto the total area to get a final answer
         TotalArea = TotalArea + Area
 
     
@@ -86,20 +91,23 @@ def Task2():
     WastedTiles = input('Input a percentage for wastage:')
     WastedTiles = int(WastedTiles)
     Wastage = WastedTiles * (WastedTiles / 100)
+    #working out the percentage in wastage by multiplying the wasted tiles by the wasted tiles divided dby 100
     TotalBox = TotalBox + Wastage
 
     Whole = TotalBox // 1
     Remainder = TotalBox%1
-    #showing that if the remainder is not equal to 0, to add 1 on to make it a whole number
+    #returning the remainder
     if Remainder !=0:
         TotalBox = Whole + 1
+    #showing that if the remainder is not equal to 0, to add 1 on to make it a whole number
         
-    #
+    
     TotalPrice = TotalBox*PricePerBox[Idcode]
     print('The area of your wall is',TotalBox,'m')
     print('The amount to boxes you have to buy including wastage is',TotalBox)
     print('the total cost is $',TotalPrice)
     print('the total cost is $',TotalPrice)
+    #displaying the area of your walls, the amount of boxes needed including wastage and the total costs
 
     return
 Task2()
